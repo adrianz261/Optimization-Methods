@@ -1,4 +1,5 @@
 /**
+ * Unconstrained Optimization
  * Expansion Method
  *  
  * Date: 21.10.2021
@@ -32,7 +33,6 @@ std::pair<double, double> expansionMethod(double (*f)(const double x), double x1
     if (y1 > y0)
     {
         x[1] = -x[1];
-        //x[2] = x[1];
         y1 = f(x[1]);
     
         if (y1 >= y0)
@@ -58,7 +58,6 @@ std::pair<double, double> expansionMethod(double (*f)(const double x), double x1
 
     if (x[0] < x[2])
     {
-        std::cerr << "f(x[0])" << '\n';
         return std::pair<double, double> (x[0], x[2]);
     }
 
