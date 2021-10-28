@@ -4,7 +4,7 @@
  * Date: 28.10.2021
  * Author: A. Zuchowski
 */
-#include <iostream>
+
 template<typename T>
 T abs(const T a)
 {
