@@ -3,15 +3,16 @@
 
 double x3(double x)
 {
-    return (x - 2.5) * (x - 2.5) * (x - 2.5);
+    return -(x - 1.5) * (x - 1.5) * (x - 1.5);
 }
 
 int main()
 {
-    double y;
+    double y = 0.0;
 
-    bisectionMethod(x3, 0, 5, y);
-
-    std::cout << y << '\n';
+    if (bisectionMethod(x3, -1.6, 10.0, y, 0.00001))
+    {
+        std::cout << y << '\n';
+    }
     return 0;
 }

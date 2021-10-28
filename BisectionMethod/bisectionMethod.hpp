@@ -1,44 +1,55 @@
+/**
+ * Bisection method
+ * 
+ * Date: 28.10.2021
+ * Author: A. Zuchowski
+*/
 #include <iostream>
-
+template<typename T>
+T abs(const T a)
+{
+    return (a >= 0) ? a : -a;
+}
 
 bool bisectionMethod(double (*f)(double), double a, double b, double &x0, const double e = 0.001)
 {
-    while (std::abs(a - b) > e)
+    while (abs(a - b) > e)
     {
-        if (f(a) == 0.0)
+        const double fa = f(a);
+        const double fb = f(b);
+
+        if (fa == 0.0)
         {
             x0 = a;
             return true;
         }
 
-        if (f(b) == 0.0)
+        if (fb == 0.0)
         {
             x0 = b;
             return true;
         }
 
         x0 = (a + b) / 2;
+        const double fx0 = f(x0);
 
-        double t = f(x0) * f(b);
-
-        if (t == 0.0)
+        if (fx0 == 0.0)
         {
             return true;
         }
-
-        if (t > 0.0)
+        if (fa * fx0 < 0.0)
         {
             b = x0;
-            continue;
         }
-
-        if (t < 0.0)
+        else if (fb * fx0 < 0.0)
         {
             a = x0;
-            continue;
+        }
+        else
+        {
+            return false;
         }
     }
-    
 
     return true;
 }
