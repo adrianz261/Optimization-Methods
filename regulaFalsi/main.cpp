@@ -10,7 +10,7 @@ int main()
 {
     double x0 = 0.0;
     
-    if (regulaFalsi(y, x0, -200.0, 300.0))
+    if (regulaFalsi(y, x0, -2.0, 3.0))
     {
         std::cout << x0 << '\n';
     }
